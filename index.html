@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link rel="stylesheet" href="index.css" />
+	</head>
+	<body>
+		<section>
+			<div id="buttons">
+				<div>
+					<label>Cadastro Pessoa</label>
+					<textarea
+						rows="4"
+						cols="50"
+						id="post"
+						placeholder="Cadastro Pessoa"
+					></textarea>
+					<button onclick="postPessoasFisicas()">Post</button>
+				</div>
+				<div>
+					<label>Alteração Pessoa</label>
+					<textarea
+						rows="4"
+						cols="50"
+						id="update-pessoa"
+						type="text"
+						placeholder="Aleteração Pessoa"
+					></textarea>
+					<button onclick="putPessoasFisicas()">Update</button>
+				</div>
+				<div>
+					<label>Id</label>
+					<input id="delete" type="number" />
+					<button onclick="deletePessoasFisicas()">Deletar</button>
+				</div>
+				<div>
+					<label>Titulo</label>
+					<input id="all" type="text" />
+					<button onclick="todo()">all</button>
+				</div>
+				<button onclick="getPessoasFisicas()">Todas os registros</button>
+			</div>
+			<div id="retorno" class="text"></div>
+		</section>
+		<script src="index.js"></script>
+	</body>
+</html>
