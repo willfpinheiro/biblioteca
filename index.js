@@ -40,8 +40,9 @@
   };
 
   function putPessoasFisicas(){
-    const id = 6
+    const id = document.querySelector('#update').value
     const pessoa = {
+      "id": `${id}`,
       "cpf": '97539449268',
       "dataEmissaoRg": "2005-05-12",
       "dataNascimento": "1998-05-12",
@@ -52,7 +53,7 @@
       "orgaoEmissor": "DETRAN",
       "rg": '4523488'
     };
-        axios.put(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas/${id}`, pessoa)
+    axios.put(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas`, pessoa)
     .then(getPessoasFisicas())
 .catch(function (error) {
   const { data, status } = error.response;
