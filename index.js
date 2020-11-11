@@ -11,8 +11,10 @@
 `
   })
   .catch(function (error) {
-    console.warn(error);
-  });
+    const { data, status } = error.response;
+    console.warn(`Status ${status}`);
+    console.warn(`Dados ${JSON.stringify(data.errors)}`);
+});
   }
 
   function postPessoasFisicas() {
@@ -25,20 +27,39 @@
       "genero": "Feminino",
       "nome": "Jorgin",
       "orgaoEmissor": "DETRAN",
-      "rg": 4523488
+      "rg": '4523488'
     };
     axios
-    .post('https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas', {pessoa})
+    .post('https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas', pessoa)
     .then(getPessoasFisicas())
     .catch(function (error) {
-      console.warn(error);
-    });
+      const { data, status } = error.response;
+      console.warn(`Status ${status}`);
+      console.warn(`Dados ${JSON.stringify(data.errors)}`);
+  });
   };
 
   function putPessoasFisicas(){
-    const id =
-        axios.put(`http://jsonplaceholder.typicode.com/posts/${id}`,{title}).then(res => showResponse(res))
-}
+    const id = 6
+    const pessoa = {
+      "cpf": '97539449268',
+      "dataEmissaoRg": "2005-05-12",
+      "dataNascimento": "1998-05-12",
+      "email": "emailnovo@gmail.com", 
+      "estadoCivil": "Casada",
+      "genero": "Feminino",
+      "nome": "Jorgin",
+      "orgaoEmissor": "DETRAN",
+      "rg": '4523488'
+    };
+        axios.put(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas/${id}`, pessoa)
+    .then(getPessoasFisicas())
+.catch(function (error) {
+  const { data, status } = error.response;
+  console.warn(`Status ${status}`);
+  console.warn(`Dados ${JSON.stringify(data.errors)}`);
+})
+  };
 
   function deletePessoasFisicas() {
     const id = document.querySelector('#delete')
@@ -46,7 +67,9 @@
   .delete(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas/${id.value}`)
   .then(getPessoasFisicas)
   .catch(function (error) {
-    console.warn(error);
-  });
+    const { data, status } = error.response;
+    console.warn(`Status ${status}`);
+    console.warn(`Dados ${JSON.stringify(data.errors)}`);
+})
   id.value = ''
-  }
+  };
