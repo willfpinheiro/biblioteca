@@ -1,0 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	margin: 0;
+	height: 100%;
+}
+section {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+section #buttons {
+	display: flex;
+	flex-flow: wrap;
+}
+section div div {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+}
+section .text {
+	flex: 1;
+	border: 1px solid #000;
+	margin: 10px;
+}
