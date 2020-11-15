@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,9 +11,12 @@
 	<body>
 		<section>
 			<div>
-				<label>Cidade</label>
-				<input id="siglaCidade" type="text" />
-				<button onclick="getCidades()">Buscar Cidade</button>
+				<label>Estado</label>
+				<input id="siglaEstado" type="text" />
+				<button onclick="getEstado()">Buscar Estado</button>
+			</div>
+			<div>
+				<button onclick="getTodosEstados()">Buscar Todos Estado</button>
 			</div>
 			<div id="retorno" class="text"></div>
 		</section>
