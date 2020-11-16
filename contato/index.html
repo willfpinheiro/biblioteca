@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+		<section>
+			<div>
+				<form action="/action_page.php">
+					<label for="pessoaFisica">Selecione uma Pessoa</label>
+					<select id="pessoaFisica" name="pessoaFisica">
+						<option value="" disabled>Nomes:</option>
+					</select>
+					<select name="tipoContato" id="tipoContato">
+						<option value="RESIDENCIAL">Residencial</option>
+						<option value="CELULAR">Celular</option>
+						<option value="TRABALHO">Trabalho</option>
+					</select>
+					<button onclick="getEstado()">Buscar Estado</button>
+				</form>
+			</div>
+			<div id="retorno" class="text"></div>
+		</section>
+		<script src="./index.js"></script>
+	</body>
+</html>
