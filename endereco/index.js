@@ -24,7 +24,7 @@ function getPessoasPorNome() {
 }
 getPessoasPorNome();
 
-function getEnderecos() {
+function getContatos() {
     const idPessoa = document.querySelector('#pessoaFisica').value
     axios
   .get(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos/${idPessoa}`)
@@ -58,13 +58,13 @@ function getEnderecos() {
 
   function postContato() {
     const contato = {
-        "idPessoa": document.querySelector('#pessoaFisica').value,
+        "idPessoa": parseInt(document.querySelector('#pessoaFisica').value),
         "telefone": document.querySelector('#contato').value,
         "tipoContato": document.querySelector('#tipoContato').value
     }
     console.log(contato)
     axios
-    .post(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos/${contato}`)
+    .post('https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos', contato)
     .then(response => {
       getContatos();
     })
@@ -76,15 +76,15 @@ function getEnderecos() {
   }
 
 
-  function putContato() {
+  function putContatos() {
     const contato = {
-        "idPessoa": document.querySelector('#pessoaFisica').value,
+        "id": parseInt(document.querySelector('#contatoPessoa').value),
         "telefone": document.querySelector('#contato').value,
         "tipoContato": document.querySelector('#tipoContato').value
     }
     console.log(contato)
     axios
-    .post(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos/${contato}`)
+    .put(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos`, contato)
     .then(response => {
       getContatos();
     })
