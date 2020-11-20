@@ -132,19 +132,18 @@ getEndereco();
   }
 
 
-  function putContatos() {
+  function putEndereco() {
     const endereco = {
-      "idPessoa": parseInt(document.querySelector('#pessoaFisica').value),
+      "id": parseInt(document.querySelector('#enderecoPessoa').value),
       "bairro": document.querySelector('#bairro').value,
       "idCidade": parseInt(document.querySelector('#idCidade').value),
       "cep": document.querySelector('#cep').value,
       "logradouro": document.querySelector('#logradouro').value
   }
-    console.log(contato)
     axios
-    .put(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos`, contato)
+    .put('https://cadastro-pessoas-cassio.herokuapp.com/api/v1/enderecos', endereco)
     .then(response => {
-      getContatos();
+      getEndereco();
     })
     .catch(function (error) {
       const { data, status } = error.response;
