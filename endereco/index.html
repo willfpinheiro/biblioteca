@@ -67,18 +67,24 @@
 				<select id="pessoaFisica" name="pessoaFisica">
 					<option value="" disabled>Nomes:</option>
 				</select>
-				<select name="tipoContato" id="tipoContato">
-					<option value="FIXO">Residencial</option>
-					<option value="CELULAR">Celular</option>
+				<label for="cidade">Selecione uma Cidade</label>
+				<select id="cidade" name="cidade">
+					<option value="" disabled>Cidade:</option>
 				</select>
-				<input type="tel" id="contato" />
-				<button onclick="postContato()">Salvar Contato</button>
-				<label for="contatoPessoa">Selecione um contato</label>
-				<input type="text" id="contatoPessoa" />
-				<button onclick="putContatos()">Atualizar Contatos</button>
-				<button onclick="getContatos()">Buscar Contatos</button>
-				<button onclick="deleteContatos()">Deletar Contatos</button>
 			</div>
+			<div>
+				<input type="text" id="Bairro" />
+				<input type="tel" id="cep" />
+				<input type="text" id="logradouro" />
+				<button onclick="postEndereo()">Salvar Endereço</button>
+			</div>
+			<div>
+				<label for="enderecoPessoa">Selecione um Endereço</label>
+				<input type="text" id="enderecoPessoa" />
+				<button onclick="putEndereco()">Atualizar Endereço</button>
+				<button onclick="deleteEndereco()">Deletar Contatos</button>
+			</div>
+			<button onclick="getEndereco()">Buscar Endereço</button>
 			<div id="retorno" class="text"></div>
 		</section>
 		<script src="./index.js"></script>
