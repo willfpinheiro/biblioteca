@@ -24,6 +24,60 @@ function getPessoasPorNome() {
 }
 getPessoasPorNome();
 
+function getNomeEstado() {
+  axios
+.get(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/estados`)
+.then(function (response) {
+  const estados = response.data
+  console.log(estados);
+  function estadosListados() {
+    listaEstado = ''
+    estados.map(estado => {
+      listaEstado = listaEstado+`<option value=${estado.sigla}> ${estado.nome} </option>`
+    }
+    )
+    return listaEstado
+  }
+  document.querySelector('#estado').innerHTML = `
+    ${estadosListados()}
+`
+})
+.catch(function (error) {
+  const { data, status } = error.response;
+  console.warn(`Status ${status}`);
+  console.warn(`Dados ${JSON.stringify(data.errors)}`);
+});
+}
+getNomeEstado();
+
+function getNomeCidade() {
+  const sigla = document.querySelector('#estado').value
+  axios
+.get(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/cidades/${sigla}`)
+.then(function (response) {
+  const cidade = response.data
+  console.log(cidade);
+  function cidadeListados() {
+    listaCidade = ''
+    cidade.map(cidade => {
+      listaCidade = listaCidade+`<option value=${cidade.siglaEstado}> ${cidade.nome} </option>`
+    }
+    )
+    return listaCidade
+  }
+  document.querySelector('#cidade').innerHTML = `
+    ${cidadeListados()}
+`
+})
+.catch(function (error) {
+  const { data, status } = error.response;
+  console.warn(`Status ${status}`);
+  console.warn(`Dados ${JSON.stringify(data.errors)}`);
+});
+}
+
+
+// Fiz ate aqui
 function getContatos() {
     const idPessoa = document.querySelector('#pessoaFisica').value
     axios
