@@ -76,19 +76,17 @@ function getNomeCidade() {
 });
 }
 
-
-// Fiz ate aqui
-function getContatos() {
+function getEndereco() {
     const idPessoa = document.querySelector('#pessoaFisica').value
     axios
-  .get(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos/${idPessoa}`)
+  .get(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/enderecos/${idPessoa}`)
   .then(function (response) {
-    const contatosPessoa = JSON.stringify(response.data);
-    console.log(contatosPessoa);
+    const enderecoPessoa = JSON.stringify(response.data);
+    console.log(enderecoPessoa);
     document.querySelector('#retorno').innerHTML = `
-    <h1>Contatos</h1>
+    <h1>Endereços</h1>
     <ul>
-      ${contatosPessoa}
+      ${enderecoPessoa}
     </ul>
 `
   })
