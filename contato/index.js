@@ -84,7 +84,7 @@ function getContatos() {
     }
     console.log(contato)
     axios
-    .post(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos`, contato)
+    .put(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos`, contato)
     .then(response => {
       getContatos();
     })
