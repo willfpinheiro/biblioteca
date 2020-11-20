@@ -68,19 +68,19 @@
 					<option value="" disabled>Nomes:</option>
 				</select>
 				<label for="estado">Selecione uma Estado</label>
-				<select id="estado" name="estado" onchange="getNomeCidade()">
+				<select id="idEstado" name="estado" onchange="getNomeCidade()">
 					<option value="" disabled>Estado:</option>
 				</select>
 				<label for="cidade">Selecione uma Cidade</label>
-				<select id="cidade" name="cidade">
+				<select id="idCidade" name="cidade">
 					<option value="" disabled>Cidade:</option>
 				</select>
 			</div>
 			<div>
-				<input type="text" id="Bairro" />
-				<input type="tel" id="cep" />
-				<input type="text" id="logradouro" />
-				<button onclick="postEndereo()">Salvar Endereço</button>
+				<input type="text" id="bairro" placeholder="Bairro: " />
+				<input type="tel" id="cep" placeholder="CEP: " />
+				<input type="text" id="logradouro" placeholder="Logradouro: " />
+				<button onclick="postEndereco()">Salvar Endereço</button>
 			</div>
 			<div>
 				<label for="enderecoPessoa">Selecione um Endereço</label>

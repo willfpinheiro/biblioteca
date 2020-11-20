@@ -38,7 +38,7 @@ function getNomeEstado() {
     )
     return listaEstado
   }
-  document.querySelector('#estado').innerHTML = `
+  document.querySelector('#idEstado').innerHTML = `
     ${estadosListados()}
 `
 })
@@ -51,7 +51,7 @@ function getNomeEstado() {
 getNomeEstado();
 
 function getNomeCidade() {
-  const sigla = document.querySelector('#estado').value
+  const sigla = document.querySelector('#idEstado').value
   axios
 .get(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/cidades/${sigla}`)
 .then(function (response) {
@@ -60,12 +60,12 @@ function getNomeCidade() {
   function cidadeListados() {
     listaCidade = ''
     cidade.map(cidade => {
-      listaCidade = listaCidade+`<option value=${cidade.siglaEstado}> ${cidade.nome} </option>`
+      listaCidade = listaCidade+`<option value=${cidade.id}> ${cidade.nome} </option>`
     }
     )
     return listaCidade
   }
-  document.querySelector('#cidade').innerHTML = `
+  document.querySelector('#idCidade').innerHTML = `
     ${cidadeListados()}
 `
 })
@@ -110,17 +110,19 @@ document.querySelector('#enderecoPessoa').value = '';
 getEndereco();
   }
 
-  function postContato() {
-    const contato = {
+  function postEndereco() {
+    const endereco = {
         "idPessoa": parseInt(document.querySelector('#pessoaFisica').value),
-        "telefone": document.querySelector('#contato').value,
-        "tipoContato": document.querySelector('#tipoContato').value
+        "bairro": document.querySelector('#bairro').value,
+        "idCidade": parseInt(document.querySelector('#idCidade').value),
+        "cep": document.querySelector('#cep').value,
+        "logradouro": document.querySelector('#logradouro').value
     }
-    console.log(contato)
+    console.log(endereco)
     axios
-    .post('https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos', contato)
+    .post('https://cadastro-pessoas-cassio.herokuapp.com/api/v1/enderecos', endereco)
     .then(response => {
-      getContatos();
+      getEndereco();
     })
     .catch(function (error) {
       const { data, status } = error.response;
@@ -131,11 +133,13 @@ getEndereco();
 
 
   function putContatos() {
-    const contato = {
-        "id": parseInt(document.querySelector('#contatoPessoa').value),
-        "telefone": document.querySelector('#contato').value,
-        "tipoContato": document.querySelector('#tipoContato').value
-    }
+    const endereco = {
+      "idPessoa": parseInt(document.querySelector('#pessoaFisica').value),
+      "bairro": document.querySelector('#bairro').value,
+      "idCidade": parseInt(document.querySelector('#idCidade').value),
+      "cep": document.querySelector('#cep').value,
+      "logradouro": document.querySelector('#logradouro').value
+  }
     console.log(contato)
     axios
     .put(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos`, contato)
