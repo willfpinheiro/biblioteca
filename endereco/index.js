@@ -24,7 +24,7 @@ function getPessoasPorNome() {
 }
 getPessoasPorNome();
 
-function getContatos() {
+function getEnderecos() {
     const idPessoa = document.querySelector('#pessoaFisica').value
     axios
   .get(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos/${idPessoa}`)

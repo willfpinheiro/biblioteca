@@ -67,12 +67,13 @@
 					<option value="" disabled>Nomes:</option>
 				</select>
 				<select name="tipoContato" id="tipoContato">
-					<option value="RESIDENCIAL">Residencial</option>
+					<option value="FIXO">Residencial</option>
 					<option value="CELULAR">Celular</option>
-					<option value="TRABALHO">Trabalho</option>
 				</select>
 				<input type="tel" id="contato" />
 				<button onclick="postContato()">Salvar Contato</button>
+				<label for="contatoPessoa">Selecione um contato</label>
+				<input type="text" id="contatoPessoa" />
 				<button onclick="putContatos()">Atualizar Contatos</button>
 				<button onclick="getContatos()">Buscar Contatos</button>
 				<button onclick="deleteContatos()">Deletar Contatos</button>
