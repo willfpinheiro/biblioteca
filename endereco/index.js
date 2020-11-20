@@ -97,15 +97,17 @@ function getEndereco() {
 });
   }
 
-  function deleteContatos() {
-    const idPessoa = document.querySelector('#pessoaFisica').value
+  function deleteEndereco() {
+    const idEndereco = document.querySelector('#enderecoPessoa').value
     axios
-  .delete(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/contatos/${idPessoa}`)
+  .delete(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/enderecos/${idEndereco}`)
   .catch(function (error) {
     const { data, status } = error.response;
     console.warn(`Status ${status}`);
     console.warn(`Dados ${JSON.stringify(data.errors)}`);
 });
+document.querySelector('#enderecoPessoa').value = '';
+getEndereco();
   }
 
   function postContato() {
