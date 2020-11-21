@@ -16,18 +16,38 @@
     console.warn(`Dados ${JSON.stringify(data.errors)}`);
 });
   }
+  function limpaCampos() {
+    document.querySelector('#cpf').value = ''
+    document.querySelector('#dataEmissaoRg').value = ''
+    document.querySelector('#dataNascimento').value = ''
+    document.querySelector('#email').value = ''
+    document.querySelector('#estadoCivil').value = ''
+    document.querySelector('#genero').value = ''
+    document.querySelector('#nome').value = ''
+    document.querySelector('#orgaoEmissor').value = ''
+    document.querySelector('#rg').value = ''
+  }
 
   function postPessoasFisicas() {
+    const cpf = document.querySelector('#cpf').value
+    const dataEmissaoRg = document.querySelector('#dataEmissaoRg').value
+    const dataNascimento = document.querySelector('#dataNascimento').value
+    const email = document.querySelector('#email').value
+    const estadoCivil = document.querySelector('#estadoCivil').value
+    const genero = document.querySelector('#genero').value
+    const nome = document.querySelector('#nome').value
+    const orgaoEmissor = document.querySelector('#orgaoEmissor').value
+    const rg = document.querySelector('#rg').value
     const pessoa = {
-      "cpf": '97539449268',
-      "dataEmissaoRg": "2005-05-12",
-      "dataNascimento": "1998-05-12",
-      "email": "emanilgeral@gmail.com",
-      "estadoCivil": "Casada",
-      "genero": "Feminino",
-      "nome": "Jorgin",
-      "orgaoEmissor": "DETRAN",
-      "rg": '4523488'
+      "cpf": `${cpf}`,
+      "dataEmissaoRg": `${dataEmissaoRg}`,
+      "dataNascimento": `${dataNascimento}`,
+      "email": `${email}`, 
+      "estadoCivil": `${estadoCivil}`,
+      "genero": `${genero}`,
+      "nome": `${nome}`,
+      "orgaoEmissor": `${orgaoEmissor}`,
+      "rg": `${rg}`
     };
     axios
     .post('https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas', pessoa)
@@ -37,21 +57,32 @@
       console.warn(`Status ${status}`);
       console.warn(`Dados ${JSON.stringify(data.errors)}`);
   });
+  limpaCampos();
+  getPessoasFisicas();
   };
 
   function putPessoasFisicas(){
     const id = document.querySelector('#update').value
+    const cpf = document.querySelector('#cpf').value
+    const dataEmissaoRg = document.querySelector('#dataEmissaoRg').value
+    const dataNascimento = document.querySelector('#dataNascimento').value
+    const email = document.querySelector('#email').value
+    const estadoCivil = document.querySelector('#estadoCivil').value
+    const genero = document.querySelector('#genero').value
+    const nome = document.querySelector('#nome').value
+    const orgaoEmissor = document.querySelector('#orgaoEmissor').value
+    const rg = document.querySelector('#rg').value
     const pessoa = {
       "id": `${id}`,
-      "cpf": '97539449268',
-      "dataEmissaoRg": "2005-05-12",
-      "dataNascimento": "1998-05-12",
-      "email": "emailnovo@gmail.com", 
-      "estadoCivil": "Casada",
-      "genero": "Feminino",
-      "nome": "Jorgin",
-      "orgaoEmissor": "DETRAN",
-      "rg": '4523488'
+      "cpf": `${cpf}`,
+      "dataEmissaoRg": `${dataEmissaoRg}`,
+      "dataNascimento": `${dataNascimento}`,
+      "email": `${email}`, 
+      "estadoCivil": `${estadoCivil}`,
+      "genero": `${genero}`,
+      "nome": `${nome}`,
+      "orgaoEmissor": `${orgaoEmissor}`,
+      "rg": `${rg}`
     };
     axios.put(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas`, pessoa)
     .then(getPessoasFisicas())
@@ -60,6 +91,8 @@
   console.warn(`Status ${status}`);
   console.warn(`Dados ${JSON.stringify(data.errors)}`);
 })
+limpaCampos();
+getPessoasFisicas();
   };
 
   function deletePessoasFisicas() {
@@ -73,4 +106,5 @@
     console.warn(`Dados ${JSON.stringify(data.errors)}`);
 })
   id.value = ''
+  getPessoasFisicas()
   };

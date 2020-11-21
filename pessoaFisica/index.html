@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+a<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -22,19 +22,11 @@
 				<div class="container">
 					<!-- logo, classe serve para remover o link e definir como logo -->
 					<a href="#" class="navbar-brand">
-						<img
-							src="../imagens/web-design-library.png"
-							width="50"
-							height="50"
-						/>
+						<img src="../imagens/web-design-library.png" width="50" height="50" />
 						Biblioteca
 					</a>
 
-					<button
-						class="navbar-toggler"
-						data-toggle="collapse"
-						data-target="#nav-principal"
-					>
+					<button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
@@ -67,30 +59,25 @@
 			<div id="buttons">
 				<div>
 					<label>Cadastro Pessoa</label>
-					<textarea
-						rows="4"
-						cols="50"
-						id="post"
-						placeholder="Cadastro Pessoa"
-					></textarea>
-					<button onclick="postPessoasFisicas()">Post</button>
+					<input type="text" id="nome" placeholder="nome:" />
+					<input type="text" id="cpf" placeholder="CPF" />
+					<input type="text" id="rg" placeholder="RG:" />
+					<input type="text" id="orgaoEmissor" placeholder="Orgão emissor:" />
+					<input type="text" id="dataEmissaoRg" placeholder="Emissao RG Ano-mes-dia" />
+					<input type="text" id="dataNascimento" placeholder="Nascimento Ano-mes-dia" />
+					<input type="text" id="email" placeholder="email:" />
+					<input type="text" id="estadoCivil" placeholder="estadoCivil:" />
+					<input type="text" id="genero" placeholder="genero:" />
+					<button onclick="postPessoasFisicas()">Salvar</button>
 				</div>
 				<div>
-					<label>id</label>
-					<input id="update" type="number" />
-					<label>Alteração Pessoa</label>
-					<textarea
-						rows="4"
-						cols="50"
-						id="update-pessoa"
-						type="text"
-						placeholder="Aleteração Pessoa"
-					></textarea>
-					<button onclick="putPessoasFisicas()">Update</button>
+					<label>Atualizar</label>
+					<input id="update" type="number" placeholder="ID" />
+					<button onclick="putPessoasFisicas()">Atualizar</button>
 				</div>
 				<div>
-					<label>Id</label>
-					<input id="delete" type="number" />
+					<label>Deletar</label>
+					<input id="delete" type="number" placeholder="ID" />
 					<button onclick="deletePessoasFisicas()">Deletar</button>
 				</div>
 				<button onclick="getPessoasFisicas()">Todas os registros</button>
@@ -99,9 +86,7 @@
 		</section>
 		<div>
 			Icons made by
-			<a href="https://www.flaticon.com/authors/freepik" title="Freepik"
-				>Freepik</a
-			>
+			<a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
 			from
 			<a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
 		</div>
