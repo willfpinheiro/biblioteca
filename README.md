@@ -1,6 +1,6 @@
 # Projeto Biblioteca
 
-Projeto CRUD desenvoldido para treinar o consumo de API, atravez do AXIOS, senda essa API desenvolvida pelo Dev backend Cassio.
+Projeto CRUD desenvolvido para treinar o consumo de API, atravez do AXIOS, senda essa API desenvolvida pelo Dev backend Cassio.
 API utilizada pode ser encontrada no repositório do [Github](https://github.com/Cassio8186/SpringBoot-CRUD)
 
 Projeto utilizado para iniciar o uso de Commits semânticos.
