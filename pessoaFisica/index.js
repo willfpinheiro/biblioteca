@@ -16,6 +16,33 @@
     console.warn(`Dados ${JSON.stringify(data.errors)}`);
 });
   }
+
+  function getPessoasFisicasCPF() {
+    const cpf = parseInt(document.querySelector('#carregarCPF').value);
+    axios
+  .get(`https://cadastro-pessoas-cassio.herokuapp.com/api/v1/pessoaFisicas/${cpf}`)
+  .then(function (response) {
+    const pessoa = response.data
+    // document.querySelector('.text').innerHTML = `${JSON.stringify(response.data)}`
+    document.querySelector('#cpf').value = pessoa.cpf
+    document.querySelector('#dataEmissaoRg').value = pessoa.dataEmissaoRg
+    document.querySelector('#dataNascimento').value = pessoa.dataNascimento
+    document.querySelector('#email').value = pessoa.email
+    document.querySelector('#estadoCivil').value = pessoa.estadoCivil
+    document.querySelector('#genero').value = pessoa.genero
+    document.querySelector('#nome').value = pessoa.nome
+    document.querySelector('#orgaoEmissor').value = pessoa.orgaoEmissor
+    document.querySelector('#rg').value = pessoa.rg
+    document.querySelector('#update').value = pessoa.id
+  })
+  .catch(function (error) {
+    const { data, status } = error.response;
+    console.warn(`Status ${status}`);
+    console.warn(`Dados ${JSON.stringify(data.errors)}`);
+});
+  }
+
+
   function limpaCampos() {
     document.querySelector('#cpf').value = ''
     document.querySelector('#dataEmissaoRg').value = ''
@@ -26,6 +53,8 @@
     document.querySelector('#nome').value = ''
     document.querySelector('#orgaoEmissor').value = ''
     document.querySelector('#rg').value = ''
+    document.querySelector('#update').value = ''
+    document.querySelector('#carregarCPF').value = ''
   }
 
   function postPessoasFisicas() {
